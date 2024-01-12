@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<title>Home - Ministry Of Labour And Employment </title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+
+<style>
+  .table{
+    width:50%;    
+  }
+
+ 
+</style>
+
+{% if message %}
+<script>
+alert('{{ message }}');
+</script>
+{% endif %}
+
+</head>
+<body>
+
+
+<header >
+    <div>
+        <img src="{% static 'image/ministry-of-labour.png' %}" alt="" class="float-left header-img">
+        <img src="{% static 'image/national-career-service.png' %}" alt="" class="float-right header-img">
+    </div>
+    <nav class="navbar navbar-expand-lg navigation float-bottom">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link active" href="/{{code}}/home">Home <span class="sr-only">(current)</span></a>
+            {% if sector is 1 %}
+            <a class="nav-item nav-link" href="/{{code}}/register">Register</a>
+            <a class="nav-item nav-link" href="/{{code}}/add_course">Add course</a>
+            {% endif %}
+
+            <a class="nav-item nav-link" href="/{{code}}/add_work">Add Work</a>
+            <a class="nav-item nav-link" href="/{{code}}/add_resign">Add Resign</a>\
+            <a class="nav-item nav-link" href="/{{code}}/activity">Activity</a>
+          </div>
+        </div>
+        <a class="btn btn-info float-right"  href="/login">Log Out</a>
+      </nav>
+</header>
+
+<div>
+  {% if sector is 1 %}
+    <table class="table">
+            <tr>
+              <td>Institution Name: </td>
+              <td>{{x.inst_name}} </td>
+            </tr>
+            <tr>
+              <td>Owner Name: </td>
+              <td>{{x.owner_name}} </td>
+            </tr>
+            <tr>
+              <td>Owner uid: </td>
+              <td>{{x.owner_uid}} </td>
+            </tr>
+            <tr>
+              <td> Address:</td>
+              <td>{{x.street}}, <br>{{x.district}}, <br> {{x.state}}</td>
+            </tr>
+            <tr>
+              <td> Pincode:</td>
+              <td>{{x.pincode}} </td>
+            </tr>
+            <tr>
+              <td> Email:</td>
+              <td>{{x.email}} </td>
+            </tr>
+            <tr>
+              <td> Mobile:</td>
+              <td>{{x.mobile}} </td>
+            </tr>
+  
+                <!-- continue -->
+  
+    </table>
+  
+    {% elif sector is 2 %}
+  
+    <table class="table">
+      <tr>
+        <td>Organisation Name: </td>
+        <td>{{x.org_name}} </td>
+      </tr>
+      <tr>
+        <td>Owner Name: </td>
+        <td>{{x.owner_name}} </td>
+      </tr>
+      <tr>
+        <td>Owner uid: </td>
+        <td>{{x.owner_uid}} </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Address:</td>
+        <td>{{x.street}}, <br>{{x.district}}, <br> {{x.state}}</td>
+      </tr>
+      <tr>
+        <td>Pincode: </td>
+        <td>{{x.pincode}} </td>
+      </tr>
+      <tr>
+        <td>Email: </td>
+        <td>{{x.email}} </td>
+      </tr>
+      <tr>
+        <td>Mobile: </td>
+        <td>{{x.mobile}} </td>
+      </tr>
+  
+          <!-- continue -->
+  
+    </table>
+  
+  
+    {% elif sector is 3 %}
+  
+    <table class="table">
+      <tr>
+        <td>Seva Store Name: </td>
+        <td>{{x.seva_name}} </td>
+      </tr>
+      <tr>
+        <td>Owner Name: </td>
+        <td>{{x.owner_name}} </td>
+      </tr>
+      <tr>
+        <td>Owner uid: </td>
+        <td>{{x.owner_uid}} </td>
+      </tr>
+      <tr>
+        <td> Address:</td>
+        <td>{{x.street}}, <br>{{x.district}}, <br> {{x.state}}</td>
+      </tr>
+      <tr>
+        <td>Pincode: </td>
+        <td>{{x.pincode}} </td>
+      </tr>
+      <tr>
+        <td>Email: </td>
+        <td>{{x.email}} </td>
+      </tr>
+      <tr>
+        <td>Mobile:</td>
+        <td>{{x.mobile}} </td>
+      </tr>
+
+  </table>
+  {% endif %}
+</div>
+
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+	function googleTranslateElementInit(){
+		new google.translate.TranslateElement(
+			{pageLanguage: 'en'},
+			'google_translate_element'
+		);
+	}
+</script>
+<br><br>
+
+
+<footer class="page-footer">
+<small>&copy; Copyright 2022 Minstry Of Labour And Welfare.All Rights Reserved</small> 
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+django
+django-crispy-forms
+opencv-python
+qrcode
+django-rest-framework
+pillow

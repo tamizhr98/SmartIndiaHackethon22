@@ -1,0 +1,119 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+<head>
+<title>Confirmation of Details</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+{% if message %}
+
+<script>
+
+alert('{{ message }}');
+
+</script>
+{% endif %}
+
+</head>
+<body>
+
+
+<header >
+    <div>
+        <img src="{% static 'image/ministry-of-labour.png' %}" alt="" class="float-left header-img">
+        <img src="{% static 'image/national-career-service.png' %}" alt="" class="float-right header-img">
+    </div>
+    <nav class="navbar navbar-expand-lg navigation float-bottom">
+      <a class="nav-item nav-link" href=""></a>
+
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link active" href="/{{code}}/home">Home <span class="sr-only">(current)</span></a>
+            {% if sector is 1 %}
+            <a class="nav-item nav-link" href="/{{code}}/register">Register</a>
+            <a class="nav-item nav-link" href="/{{code}}/add_course">Add course</a>
+            {% endif %}
+            <a class="nav-item nav-link" href="/{{code}}/add_work">Add Work</a>
+            <a class="nav-item nav-link" href="/{{code}}/add_resign">Add Resign</a>
+            <a class="nav-item nav-link" href="/{{code}}/activity">Activity</a>
+          </div>
+        </div> -->
+      </nav>
+</header>
+
+
+<br><br>
+
+  <div class="container">
+
+    <div class="container">
+      <div class="container">
+        <div class="float-right img-thumbnail ">
+          <img src="{{x.photo.url}}" alt="f'{{x.name}} image'" width="150px" height="150px">
+          </div>
+      </div>
+
+    <h3>CONFIRMATION DETAILS:</h3>
+  
+  <table class="table">
+    <tr>
+      <td>Uid: </td>
+      <td>{{x.uid}}    </td>
+    </tr>
+    <tr>
+      <td>Name: </td>
+      <td>{{x.name}}    </td>
+    </tr>
+    <tr>
+      <td>Aadhar Number: </td>
+      <td>{{x.aadhar}} </td>
+    </tr>
+    <tr>
+      <td>Date Of Birth: </td>
+      <td>{{x.dob}} </td>
+    </tr>
+    <tr>
+      <td>Gender: </td>
+      <td>{{x.gender}} </td>
+    </tr>
+  </table>
+
+  <form method="POST" class="form-inline">
+    {% csrf_token %}
+
+  
+
+  <div class="btn btn-block">
+    <button class=" btn btn-primary" type="submit">
+      confirm
+    </button>
+  </div>
+  </form>
+
+</div>
+</div>
+
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+	function googleTranslateElementInit(){
+		new google.translate.TranslateElement(
+			{pageLanguage: 'en'},
+			'google_translate_element'
+		);
+	}
+</script>
+<br><br>
+
+
+<footer>
+<small>&copy; Copyright 2022 Minstry Of Labour And Welfare.All Rights Reserved</small> 
+</footer>
+
+</body>
+</html>

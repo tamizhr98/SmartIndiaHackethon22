@@ -1,0 +1,118 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+<head>
+<title>Add Resign - Ministry Of Labour And Employment</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+
+{% if message %}
+
+<script>
+
+alert('{{ message }}');
+
+</script>
+{% endif %}
+
+</head>
+<body>
+
+
+<header >
+    <div>
+        <img src="{% static 'image/ministry-of-labour.png' %}" alt="" class="float-left header-img">
+        <img src="{% static 'image/national-career-service.png' %}" alt="" class="float-right header-img">
+    </div>
+    <nav class="navbar navbar-expand-lg navigation float-bottom">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link" href="/{{code}}/home">Home <span class="sr-only">(current)</span></a>
+            {% if sector is 1 %}
+            <a class="nav-item nav-link" href="/{{code}}/register">Register</a><br>
+            <a class="nav-item nav-link" href="/{{code}}/add_course">Add course</a>
+
+            {% endif %}
+            <a class="nav-item nav-link" href="/{{code}}/add_work">Add Work</a>
+            <a class="nav-item nav-link active" href="/{{code}}/add_resign">Add Resign</a>
+            <a class="nav-item nav-link" href="/{{code}}/activity">Activity</a>
+          </div>
+        </div>
+        <a class="btn btn-info float-right"  href="/login">Log Out</a>
+      </nav>
+</header>
+
+
+
+
+
+ 
+
+
+
+
+
+<div class="container">
+<div class="row justify-content">
+
+<form>
+
+  <br><br>
+  <a class=" btn btn-primary " href = "{% url 'add_resign_qr' code %}">
+    scan QR to fill uid
+  </a>
+  <br><br>
+
+  <div class="form-group">
+    <label for="resign_date">Resign Date</label>
+    <input type="text" class="form-control" id="resign_date" name="resign_date">
+  </div>
+  
+  <div class="form-group">
+    <label for="uid">uid</label>
+    <input type="text" class="form-control" id="uid" name="uid" value="{{uid}}">
+  </div>
+
+
+
+  <div class="btn btn-block">
+    <button class=" btn btn-primary" type="submit">
+      submit
+    </button>
+  </div>
+</form>
+
+</div>    
+
+</div>
+
+
+
+
+  </div>
+</div>
+
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+	function googleTranslateElementInit(){
+		new google.translate.TranslateElement(
+			{pageLanguage: 'en'},
+			'google_translate_element'
+		);
+	}
+</script>
+<br><br>
+
+
+   <footer class="page-footer">
+   <small>&copy; Copyright 2022 Minstry Of Labour And Welfare.All Rights Reserved</small> 
+   </footer>
+
+</body>
+</html>

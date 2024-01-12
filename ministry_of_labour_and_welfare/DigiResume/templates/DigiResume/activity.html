@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<title>Activity - Ministry Of Labour And Employment </title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+</head>
+<body>
+
+
+<header >
+    <div>
+        <img src="{% static 'image/ministry-of-labour.png' %}" alt="" class="float-left header-img">
+        <img src="{% static 'image/national-career-service.png' %}" alt="" class="float-right header-img">
+    </div>
+    <nav class="navbar navbar-expand-lg navigation float-bottom">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link" href="/{{code}}/home">Home <span class="sr-only">(current)</span></a>
+            {% if sector is 1 %}
+            <a class="nav-item nav-link" href="/{{code}}/register">Register</a>
+            <a class="nav-item nav-link" href="/{{code}}/add_course">Add course</a>
+            {% endif %}
+            <a class="nav-item nav-link" href="/{{code}}/add_work">Add Work</a>
+            <a class="nav-item nav-link" href="/{{code}}/add_resign">Add Resign</a>
+            <a class="nav-item nav-link active" href="/{{code}}/activity">Activity</a>
+          </div>
+        </div>
+        <a class="btn btn-info float-right"  href="/login">Log Out</a>
+
+      </nav>
+    </header>
+
+    <br> 
+
+<div class="container">
+  <table class="table table-stripped table-bordered">
+    <thead class="thead-dark" >
+      <tr>
+        <th>date time
+        </th>
+        <th>uid</th>
+        <th>action</th>
+      </tr>
+    </thead>
+  
+
+      {% for i in o %}
+      <tr>
+        <td>{{i.date_time}}</td>
+        <td>{{i.uid}}</td>
+        <td>{{i.action}}</td>
+      </tr>
+      {% endfor %}
+
+  
+  </table>
+  
+  
+  </div>
+
+  <div id="google_translate_element"></div>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement(
+        {pageLanguage: 'en'},
+        'google_translate_element'
+      );
+    }
+  </script>
+  <br><br>
+
+
+   <footer>
+   <small>&copy; Copyright 2022 Minstry Of Labour And Welfare.All Rights Reserved</small> 
+   </footer>
+
+</body>
+</html>
